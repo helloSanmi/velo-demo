@@ -84,3 +84,6 @@ npm run preview
 
 - AI features need `GEMINI_API_KEY`.
 - Data is locally persisted in browser storage and initialized from mock services.
+
+## Training student
+- Eunice Osuagwuh
