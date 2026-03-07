@@ -16,7 +16,7 @@ env:
   FRONTEND_DIR: frontend
   VM_DEPLOY_PATH: /var/www/velo-learn
   PM2_APP_NAME: velo-learn
-  # Repository variable so the teaching demo can switch ports without editing YAML.
+  # Repository variable so the app can switch ports without editing YAML.
   VM_APP_PORT: ${{ vars.VM_APP_PORT || '8080' }}
 
 jobs:

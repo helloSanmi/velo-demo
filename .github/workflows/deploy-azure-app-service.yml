@@ -2,19 +2,8 @@
 # to Azure App Service using a publish profile.
 name: Deploy Frontend To Azure App Service
 
-# on:
-#   # Manual trigger only.
-#   # deploying automatically on every push.
-#   workflow_dispatch:
-
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'frontend/**'
-      - '.github/workflows/deploy-azure-app-service.yml'
 
 permissions:
   # The workflow only needs to read repository contents.
@@ -25,7 +14,8 @@ env:
   NODE_VERSION: "20"
   FRONTEND_DIR: frontend
   BUILD_DIR: frontend/dist
-  AZURE_WEBAPP_NAME: ${{ vars.AZURE_WEBAPP_NAME }}
+  # Repository variable for the Web App used by the publish-profile workflow.
+  AZURE_WEBAPP_NAME_PUBLISH: ${{ vars.AZURE_WEBAPP_NAME_PUBLISH }}
 
 jobs:
   # Stage 1: build the frontend and package the deployable artifact.
@@ -83,6 +73,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          app-name: ${{ env.AZURE_WEBAPP_NAME_PUBLISH }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: dist

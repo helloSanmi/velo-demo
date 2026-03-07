@@ -93,5 +93,5 @@ This repo can be used to teach static frontend deployment with GitHub Actions YA
 - Azure App Service OIDC workflow: `.github/workflows/deploy-azure-app-service-oidc.yml`
 - Azure VM workflow: `.github/workflows/deploy-azure-vm.yml`
 - Azure VM bootstrap script: `deploy/scripts/bootstrap-vm-pm2.sh`
-- Deployment notes: `docs/azure-deployment-teaching.md`
-- Lesson guide: `docs/azure-deployment-lesson-guide.md`
+- App Service publish variable: `AZURE_WEBAPP_NAME_PUBLISH`
+- App Service OIDC variable: `AZURE_WEBAPP_NAME_OIDC`

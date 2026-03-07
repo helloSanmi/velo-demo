@@ -18,7 +18,8 @@ env:
   NODE_VERSION: "20"
   FRONTEND_DIR: frontend
   BUILD_DIR: frontend/dist
-  AZURE_WEBAPP_NAME: ${{ vars.AZURE_WEBAPP_NAME }}
+  # Repository variable for the Web App used by the OIDC workflow.
+  AZURE_WEBAPP_NAME_OIDC: ${{ vars.AZURE_WEBAPP_NAME_OIDC }}
 
 jobs:
   # Stage 1: build the frontend and package the deployable artifact.
@@ -85,5 +86,5 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          app-name: ${{ env.AZURE_WEBAPP_NAME_OIDC }}
           package: dist
